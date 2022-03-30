@@ -9,13 +9,14 @@ module.exports = merge(common, {
   externals: {
     react: 'react',
     'react-dom': 'react-dom',
-    'react-router-dom': 'react-router-dom'
+    'react-router-dom': 'react-router-dom',
   },
   output: {
+    path: path.resolve(__dirname,'..','dist'),
     filename: '[name]_bundle.ts',
     clean: true,
     library: {
-      type: 'commonjs-module',
+      type: 'commonjs-static',
     },
   },
   plugins: []

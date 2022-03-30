@@ -8,10 +8,17 @@ module.exports = merge(common,{
     entry: {    
       app: '../examples/index.tsx'
     },
+    resolve: {
+      // Add `.ts` and `.tsx` as a resolvable extension.
+      extensions: [".tsx", ".jsx",".js",".ts"]
+    },
     output: {
         clean: true,
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname)
+        path: path.resolve(__dirname),
+        library: {
+          type: 'commonjs-module',
+        },
     },
     plugins: [
         new HtmlWebpackPlugin({

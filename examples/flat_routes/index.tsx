@@ -1,6 +1,6 @@
 import {RouterWithEffect} from '../../src/index'
-import {BrowserRouter as Router} from 'react-router-dom' 
-import * as ReactDOM from 'react-dom'
+import {useNavigate} from 'react-router-dom' 
+import { useEffect } from 'react'
 import {   
     DefualtCom,
     TestOne,
@@ -33,12 +33,16 @@ const flatRoutes:routes = [
 ]
 
 export default function App(){
+    let nav = useNavigate()
+    useEffect(() => {
+        return () => {nav('/'); console.log('卸载了',)}
+    },[])
     return(
         <div>
             <h1>falt_routes</h1>
-            <Router>
+      
                 <RouterWithEffect routes={flatRoutes}/>
-            </Router>
+      
         </div>
     )
 }

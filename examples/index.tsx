@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import WithoutTitlCom from './withoutTitle_routes/index'
 import FlatCom from './flat_routes/index'
 import ChildrensCom from './childrens_routes/index'
-function App(){
+import { BrowserRouter, useNavigate } from 'react-router-dom'
+function Example(){
     let [currentShow,setCurrentShow] = useState(0)
     function changeCurrentShow(index:number){
         setCurrentShow(index)
@@ -34,6 +35,13 @@ function App(){
                 return <button style={index === currentShow ? {color:'red'} : null} onClick={() => changeCurrentShow(index)} key={index}>{item.name}</button>
             })}
         </div>
+    )
+}
+function App(){
+    return (
+        <BrowserRouter>
+            <Example/>
+        </BrowserRouter>
     )
 }
 ReactDOM.render(<App/>,document.getElementById('root'))

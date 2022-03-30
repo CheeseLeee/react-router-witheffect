@@ -1,5 +1,5 @@
 import {RouterWithEffect} from '../../src/index'
-import {BrowserRouter as Router} from 'react-router-dom' 
+import {useNavigate} from 'react-router-dom' 
 import * as ReactDOM from 'react-dom'
 import {   
     DefualtCom,
@@ -7,6 +7,7 @@ import {
     TestTwo,} from './views/index'
 import {routes} from '../../src/typed'
 import { ChildrenOne } from './views/TestOne/Children/ChildrenOne'
+import { useEffect } from 'react'
 const flatRoutes:routes = [
     {
         path: '/',
@@ -39,12 +40,16 @@ const flatRoutes:routes = [
 ]
 
 export default function App(){
+    let nav = useNavigate()
+    useEffect(() => {
+        return () => {nav('/'); console.log('卸载了',)}
+    },[])
     return(
         <div>
-            <h1>children_routes</h1>
-            <Router>
+            <h1>wihtoutchildren_routes</h1>
+
                 <RouterWithEffect routes={flatRoutes}/>
-            </Router>
+          
         </div>
     )
 }

@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import { useLocation, useRoutes } from "react-router-dom";
 import {iPorpsOfRouterMap,routes} from './typed'
-export {BrowserRouter as Router} from 'react-router-dom' 
-
-
-let pathMapTitle:Map<string,string>
+console.log('effect begining')
+let pathMapTitle:Map<string,string | undefined>
 pathMapTitle = new Map()
 function createRoutesTree(routes:routes){
+    console.log(routes)
     routes.forEach((item) => {
         let path = item.path
-        let title = item.title      
+        let title 
+        if(item.title){
+            title = item.title
+        }    
         let children = item.children
         pathMapTitle.set(path,title)
         if(children){
