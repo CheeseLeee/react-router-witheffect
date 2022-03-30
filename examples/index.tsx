@@ -8,26 +8,30 @@ function App(){
     function changeCurrentShow(index:number){
         setCurrentShow(index)
     }
-    const showTestComButtons = [
-        'show:WithoutTitlCom',
-        'show:FlatCom',
-        'show:ChildrensCom'
-    ]
-    const showTestCom = [
-        <WithoutTitlCom/>,
-        <FlatCom/>,
-        <ChildrensCom/>
+    const showTestComs = [
+        {
+            name:'show:WithoutTitlCom',
+            ele:<WithoutTitlCom/>,
+        },
+        {
+            name:'show:FlatCom',
+            ele:<FlatCom/>,
+        },
+        {
+            name:'show:ChildrensCom',
+            ele:<ChildrensCom/>,
+        },
     ]
     return(
         <div>
             <h1 style={{color:'red'}}>weclome to TEST APP</h1>
             <p>-------------------show   examples -----------------</p>
-            {showTestCom.map((item,index) => {
-                return currentShow === index ? <div key={index}>{item}</div> : null
+             {showTestComs.map((item,index) => {
+                return currentShow === index ? <div key={index}>{item.ele}</div> : null
             })}
             <p>-------------------show other examples--------------</p>
-            {showTestComButtons.map((item,index) => {
-                return <button style={index === currentShow ? {color:'red'} : null} onClick={() => changeCurrentShow(index)} key={index}>{item}</button>
+            {showTestComs.map((item,index) => {
+                return <button style={index === currentShow ? {color:'red'} : null} onClick={() => changeCurrentShow(index)} key={index}>{item.name}</button>
             })}
         </div>
     )

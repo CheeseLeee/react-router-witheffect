@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --config ./configs/webpack.dev.js",
     "build": "npx webpack --config ./configs/webpack.prod.js"
   },
-  "types": "mainFile.d.ts",
+  "types": "bundle.d.ts",
   "author": "solodog_cheeseLeee",
   "license": "ISC",
   "devDependencies": {

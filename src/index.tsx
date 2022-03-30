@@ -18,7 +18,7 @@ function createRoutesTree(routes:routes){
     })
     return pathMapTitle
 }
-export function RouterMap(props:iPorpsOfRouterMap) {
+export function RouterWithEffect(props:iPorpsOfRouterMap) {
     let loaction = useLocation()
     let pathMapTitle = createRoutesTree(props.routes)
     useEffect(() => {

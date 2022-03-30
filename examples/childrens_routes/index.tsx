@@ -1,4 +1,4 @@
-import {RouterMap} from '../../src/index'
+import {RouterWithEffect} from '../../src/index'
 import {BrowserRouter as Router} from 'react-router-dom' 
 import * as ReactDOM from 'react-dom'
 import {   
@@ -50,7 +50,7 @@ export default function App(){
         <div>
             <h1>children_routes</h1>
             <Router>
-                <RouterMap routes={flatRoutes}/>
+                <RouterWithEffect routes={flatRoutes}/>
             </Router>
         </div>
     )
