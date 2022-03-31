@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useRoutes } from "react-router-dom";
 import {iPorpsOfRouterMap,routes} from './typed'
-console.log('effect begining')
+console.log('routerWitheffect begining -beat version')
 let pathMapTitle:Map<string,string | undefined>
 pathMapTitle = new Map()
 function createRoutesTree(routes:routes){
